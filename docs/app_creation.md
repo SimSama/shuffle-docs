@@ -6,6 +6,7 @@ Documentation for app creation.
 * [Why create a custom app?](#whycustom)
 * [Manual creation (python3.7)](#manual)
 * [Development Instructions](#devinstructions)
+* [Hotloading Apps](#hotloading)
 * [App editor](#app_editor)
 
 ## Prerequisites
@@ -197,8 +198,16 @@ actions:
 The app's logo can be encoded here using a base64 encoded representation of the image, listed after large_image, see example below, but omitted for brevity:
 ```
 large_image: data:image/jpg;base64,/9j/4AAQSkZJR
-Here is a excerpt of the template code:
 ```
+In linux you would run the following command against an image file, noting the extension type to specify in tag large_image. After the base64, section, you'll paste the raw base64. It can be quite long.
+
+To get the base64 representation of an image, and output it to a file for viewing, run this command:
+```
+base64 -w 0 /tmp/somefile.jpg > /tmp/somefile_base64
+```
+The resulting file would just contain the base64 that you would view and copy into api.yaml
+The format is <br><b>large_image: data:image/<filetype>;base64,<base64 string><b>
+
 
 ### requirements.txt
 This is your standard python module list that will get installed on Docker container launch
